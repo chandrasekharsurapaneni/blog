@@ -1,0 +1,33 @@
+<%- include("partials/header.ejs") %>
+
+<!-- <img src="/css/forest-1072828_1920.jpg" alt="" > -->
+<center>
+    <h1>joke of the day </h1>
+    <p><%=joke.joke  %></p>
+</center>
+<h1>Home</h1>
+<p>
+    <%=home %>  
+</p>
+<% posts.forEach(element => {%>
+
+<h1>
+    <%= element.title%>
+    </h1>
+<p><% if(element.content.length>=100){ %>
+    <%= element.content.substring(0,100)+" ... "%>
+    <a href="/posts/<%= element._id %>"
+        >readmore</a>
+        <% }else{ %>
+            <%= element.content %>
+            <% } %>
+    </p>
+    <form action="/delete" method="post">
+       
+        <button type="submit" class="btn btn-primary" name="eletit" value="<%= element._id %>" formmethod="get" formaction="/compose">edit</button>
+        <button type="submit" class="btn btn-danger" name="title" value="<%= element._id %>">delete</button>
+    </form>
+
+<%}); %>
+
+<%- include("partials/footer.ejs") %>
