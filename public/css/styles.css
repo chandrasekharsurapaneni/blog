@@ -38,6 +38,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: grey;
+    background-size: 200vh;
    } 
 *{
  color: white;
